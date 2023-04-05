@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from pprint import pprint
-from textwrap import dedent
 
 
 @dataclass
@@ -26,9 +25,7 @@ def main():
         else:
             category = "city"
         # Build result.
-        return Categorized(
-            name=place.name, category=category
-        )
+        return Categorized(name=place.name, category=category)
 
     places = [
         Place(name="Nuevo Progreso", population=2_704),
@@ -37,16 +34,15 @@ def main():
     ]
 
     # categorized_places = [*map(categorize, places)]
-    # categorized_places = [
-    #     categorize(place) for place in places
-    # ]
     categorized_places = [
         *map(
             lambda place: Categorized(
                 name=place.name,
                 category=(
-                    "village" if place.population < 5_000
-                    else "town" if place.population < 100_000
+                    "village"
+                    if place.population < 5_000
+                    else "town"
+                    if place.population < 100_000
                     else "city"
                 ),
             ),
@@ -54,20 +50,6 @@ def main():
         )
     ]
     pprint(categorized_places)
-
-# Hi there!
-    # print(
-    #     # dedent(
-    #         """
-    #         - name: Nuevo Progreso
-    #           population: 2704
-    #         - name: San Marcos
-    #           population: 47063
-    #         - name: Xela
-    #           population: 180706
-    #         """
-    #     # ).strip()
-    # )
 
 
 if __name__ == "__main__":
