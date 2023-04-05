@@ -79,6 +79,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# https://www.artima.com/weblogs/viewpost.jsp?thread=147358
