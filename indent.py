@@ -15,7 +15,7 @@ class Categorized:
 
 
 def main():
-    def categorize(place: Place) -> str:
+    def categorize(place: Place) -> Categorized:
         population = place.population
         # Branch on population.
         if population < 5_000:
@@ -24,7 +24,6 @@ def main():
             category = "town"
         else:
             category = "city"
-        # Build result.
         return Categorized(name=place.name, category=category)
 
     places = [
